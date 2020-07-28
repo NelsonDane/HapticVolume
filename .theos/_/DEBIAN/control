@@ -1,0 +1,10 @@
+Package: com.gamersnail.hapticvolume
+Name: Haptic Volume
+Architecture: iphoneos-arm
+Description: Adds Haptic Feedback to the Volume Buttons! Can customize the strength of the haptic as well as enable and disable the tweak.
+Maintainer: Nelson Dane
+Author: Nelson Dane
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), ws.hbang.common (>= 1.13)
+Version: 0.0.5-1+debug
+Installed-Size: 280
