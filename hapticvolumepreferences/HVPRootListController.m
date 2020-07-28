@@ -14,7 +14,7 @@
 
 - (void)openGithub {
 	[[UIApplication sharedApplication]
-	openURL:[NSURL URLWithString:@"https://github.com/NelsonDane/Repo"]
+	openURL:[NSURL URLWithString:@"https://github.com/NelsonDane/HapticVolume"]
 	options:@{}
 	completionHandler:nil];
 }
