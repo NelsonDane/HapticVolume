@@ -36,7 +36,7 @@
 			<key>cell</key>
 			<string>PSSliderCell</string>
 			<key>default</key>
-			<integer>15</integer>
+			<integer>2</integer>
 			<key>defaults</key>
 			<string>com.gamersnail.hapticvolumepreferences</string>
 			<key>key</key>
@@ -50,7 +50,16 @@
 			<key>showValue</key>
 			<true/>
 			<key>segmentCount</key>
-			<integer>3</integer>
+			<integer>2</integer>
+			<key>PostNotification</key>
+			<string>com.gamersnail.hapticvolumepreferences/ReloadPrefs</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Respring</string>
 		</dict>
 
 		<dict>
@@ -60,6 +69,13 @@
 			<string>Respring</string>
 			<key>action</key>
 			<string>respring</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Other Links</string>
 		</dict>
 
 		<dict>

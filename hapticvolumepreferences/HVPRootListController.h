@@ -3,3 +3,7 @@
 @interface HVPRootListController : PSListController
 
 @end
+
+@interface SBLockScreenViewControllerBase : UIViewController
+
+@end
