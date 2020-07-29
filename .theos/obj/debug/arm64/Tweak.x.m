@@ -1,18 +1,9 @@
 #line 1 "Tweak.x"
-#define PLIST_PATH @"/var/mobile/Library/Preferences/com.gamersnail.hapticvolumepreferences.plist"
 #import <AudioToolbox/AudioToolbox.h>
+#import <Cephei/HBPreferences.h>
 
-inline bool GetPrefBool (NSString *key)
-{
-	return [[[NSDictionary dictionaryWithContentsOfFile:PLIST_PATH] valueForKey:key] boolValue];
-}
-
-
-NSString* GetPrefString (NSString *key)
-{
-	return [[[NSDictionary dictionaryWithContentsOfFile:PLIST_PATH] valueForKey:key] stringValue];
-}
-
+static BOOL isEnabled;
+static float hapticStrength;
 
 
 #include <substrate.h>
@@ -38,23 +29,54 @@ NSString* GetPrefString (NSString *key)
 @class SBVolumeControl; 
 static void (*_logos_orig$_ungrouped$SBVolumeControl$increaseVolume)(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$SBVolumeControl$increaseVolume(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST, SEL); static void (*_logos_orig$_ungrouped$SBVolumeControl$decreaseVolume)(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$SBVolumeControl$decreaseVolume(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST, SEL); 
 
-#line 16 "Tweak.x"
+#line 7 "Tweak.x"
 
 static void _logos_method$_ungrouped$SBVolumeControl$increaseVolume(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd) {
-  if (GetPrefBool(@"isEnabled")) {
-    _logos_orig$_ungrouped$SBVolumeControl$increaseVolume(self, _cmd);
-    AudioServicesPlaySystemSound(1520);
-  }
+	_logos_orig$_ungrouped$SBVolumeControl$increaseVolume(self, _cmd);
+	if(isEnabled) {
+		if (hapticStrength == 1) {
+			AudioServicesPlaySystemSound(1519);
+		}
+		if (hapticStrength == 2) {
+			AudioServicesPlaySystemSound(1520);
+		}
+		if (hapticStrength == 3) {
+			AudioServicesPlaySystemSound(1521);
+		}
+	}
 }
 
 static void _logos_method$_ungrouped$SBVolumeControl$decreaseVolume(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd) {
-  if (GetPrefBool(@"isEnabled")) {
-  _logos_orig$_ungrouped$SBVolumeControl$decreaseVolume(self, _cmd);
-  AudioServicesPlaySystemSound(1520);
-  }
+	_logos_orig$_ungrouped$SBVolumeControl$decreaseVolume(self, _cmd);
+	if(isEnabled) {
+		if (hapticStrength == 1) {
+			AudioServicesPlaySystemSound(1519);
+		}
+		if (hapticStrength == 2) {
+			AudioServicesPlaySystemSound(1520);
+		}
+		if (hapticStrength == 3) {
+			AudioServicesPlaySystemSound(1521);
+		}
+	}
 }
 
 
+
+static void loadPrefs() {
+	
+	
+	isEnabled = [[HBPreferences objectForKey:@"isEnabled"] boolValue];
+	hapticStrength = [[HBPreferences objectforKey:"hapticStrength"] floatValue];
+}
+
+static __attribute__((constructor)) void _logosLocalCtor_a2cc5a99(int __unused argc, char __unused **argv, char __unused **envp) {
+
+  
+	loadPrefs();
+	
+	
+}
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$SBVolumeControl = objc_getClass("SBVolumeControl"); { MSHookMessageEx(_logos_class$_ungrouped$SBVolumeControl, @selector(increaseVolume), (IMP)&_logos_method$_ungrouped$SBVolumeControl$increaseVolume, (IMP*)&_logos_orig$_ungrouped$SBVolumeControl$increaseVolume);}{ MSHookMessageEx(_logos_class$_ungrouped$SBVolumeControl, @selector(decreaseVolume), (IMP)&_logos_method$_ungrouped$SBVolumeControl$decreaseVolume, (IMP*)&_logos_orig$_ungrouped$SBVolumeControl$decreaseVolume);}} }
-#line 32 "Tweak.x"
+#line 54 "Tweak.x"
