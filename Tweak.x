@@ -2,7 +2,7 @@
 #import <Cephei/HBPreferences.h>
 
 static BOOL isEnabled;
-static float hapticStrength;
+static CGFloat hapticStrength;
 
 %hook SBVolumeControl
 -(void)increaseVolume {
@@ -37,17 +37,9 @@ static float hapticStrength;
 
 %end
 
-static void loadPrefs() {
-	//isEnabled = YES;
-	//hapticStrength = 3;
-	isEnabled = [[HBPreferences objectForKey:@"isEnabled"] boolValue];
-	hapticStrength = [[HBPreferences objectforKey:"hapticStrength"] floatValue];
-}
-
 %ctor {
 
-  //HBPreferences *preferences = [[HBPreferences alloc] initWithIdentifier:@"com.gamersnail.hapticvolumepreferences"];
-	loadPrefs();
-	//[preferences registerBool:&isEnabled default:YES forKey:@"isEnabled"];
-	//[preferences registerInteger:&hapticStrength default:2 forKey:@"hapticStrength"];
+  HBPreferences *preferences = [[HBPreferences alloc] initWithIdentifier:@"com.gamersnail.hapticvolumepreferences"];
+	[preferences registerBool:&isEnabled default:YES forKey:@"isEnabled"];
+	[preferences registerFloat:&hapticStrength default:2 forKey:@"hapticStrength"];
 }

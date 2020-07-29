@@ -82,7 +82,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
-			<string>Source Code on Github</string>
+			<string>Source Code on GitHub</string>
 			<key>action</key>
 			<string>openGithub</string>
 		</dict>
@@ -99,6 +99,6 @@
 
 	</array>
 	<key>title</key>
-	<string>HapticVolumePreferences</string>
+	<string>HapticVolume</string>
 </dict>
 </plist>
