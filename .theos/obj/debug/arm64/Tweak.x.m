@@ -63,20 +63,12 @@ static void _logos_method$_ungrouped$SBVolumeControl$decreaseVolume(_LOGOS_SELF_
 
 
 
-
-
-
-
-
-
-
-static __attribute__((constructor)) void _logosLocalCtor_a2cc5a99(int __unused argc, char __unused **argv, char __unused **envp) {
+static __attribute__((constructor)) void _logosLocalCtor_60a62657(int __unused argc, char __unused **argv, char __unused **envp) {
 
   HBPreferences *preferences = [[HBPreferences alloc] initWithIdentifier:@"com.gamersnail.hapticvolumepreferences"];
-	
 	[preferences registerBool:&isEnabled default:YES forKey:@"isEnabled"];
 	[preferences registerFloat:&hapticStrength default:2 forKey:@"hapticStrength"];
 }
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$SBVolumeControl = objc_getClass("SBVolumeControl"); { MSHookMessageEx(_logos_class$_ungrouped$SBVolumeControl, @selector(increaseVolume), (IMP)&_logos_method$_ungrouped$SBVolumeControl$increaseVolume, (IMP*)&_logos_orig$_ungrouped$SBVolumeControl$increaseVolume);}{ MSHookMessageEx(_logos_class$_ungrouped$SBVolumeControl, @selector(decreaseVolume), (IMP)&_logos_method$_ungrouped$SBVolumeControl$decreaseVolume, (IMP*)&_logos_orig$_ungrouped$SBVolumeControl$decreaseVolume);}} }
-#line 54 "Tweak.x"
+#line 46 "Tweak.x"
