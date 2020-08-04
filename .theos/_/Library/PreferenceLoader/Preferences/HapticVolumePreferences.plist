@@ -15,7 +15,7 @@
 		<key>isController</key>
 		<true/>
 		<key>label</key>
-		<string>HapticVolume</string>
+		<string>HapticVolumePreferences</string>
 	</dict>
 </dict>
 </plist>

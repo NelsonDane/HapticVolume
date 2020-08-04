@@ -2,10 +2,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <Cephei/HBPreferences.h>
 
-
 static BOOL isEnabled;
 static CGFloat hapticStrength;
-
 
 
 #include <substrate.h>
@@ -31,7 +29,7 @@ static CGFloat hapticStrength;
 @class SBVolumeControl; 
 static void (*_logos_orig$_ungrouped$SBVolumeControl$increaseVolume)(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$SBVolumeControl$increaseVolume(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST, SEL); static void (*_logos_orig$_ungrouped$SBVolumeControl$decreaseVolume)(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$SBVolumeControl$decreaseVolume(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST, SEL); 
 
-#line 9 "Tweak.x"
+#line 7 "Tweak.x"
 
 static void _logos_method$_ungrouped$SBVolumeControl$increaseVolume(_LOGOS_SELF_TYPE_NORMAL SBVolumeControl* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd) {
 	_logos_orig$_ungrouped$SBVolumeControl$increaseVolume(self, _cmd);
@@ -65,8 +63,7 @@ static void _logos_method$_ungrouped$SBVolumeControl$decreaseVolume(_LOGOS_SELF_
 
 
 
-
-static __attribute__((constructor)) void _logosLocalCtor_9d1dd3f5(int __unused argc, char __unused **argv, char __unused **envp) {
+static __attribute__((constructor)) void _logosLocalCtor_60a62657(int __unused argc, char __unused **argv, char __unused **envp) {
 
   HBPreferences *preferences = [[HBPreferences alloc] initWithIdentifier:@"com.gamersnail.hapticvolumepreferences"];
 	[preferences registerBool:&isEnabled default:YES forKey:@"isEnabled"];
@@ -74,4 +71,4 @@ static __attribute__((constructor)) void _logosLocalCtor_9d1dd3f5(int __unused a
 }
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$SBVolumeControl = objc_getClass("SBVolumeControl"); { MSHookMessageEx(_logos_class$_ungrouped$SBVolumeControl, @selector(increaseVolume), (IMP)&_logos_method$_ungrouped$SBVolumeControl$increaseVolume, (IMP*)&_logos_orig$_ungrouped$SBVolumeControl$increaseVolume);}{ MSHookMessageEx(_logos_class$_ungrouped$SBVolumeControl, @selector(decreaseVolume), (IMP)&_logos_method$_ungrouped$SBVolumeControl$decreaseVolume, (IMP*)&_logos_orig$_ungrouped$SBVolumeControl$decreaseVolume);}} }
-#line 49 "Tweak.x"
+#line 46 "Tweak.x"
